@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Indie+Flower&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Number Facts App</title>
+</head>
+
+<body>
+    <div class='container'>
+            
+            <div class="col-md-6 mx-auto ">
+                <div class="card bg-primary mt-5 p-4" id="content">
+                        <h1 class="header-brand p-6" id="header">NUMBER FACTS APP</h1>
+                        <form class="form-group"id="form">
+                                <input type='number' placeholder="Month" id="month" class="form-control form-control-lg m-2">
+                                <input type='number' placeholder="Day" id="day" class="form-control form-control-lg m-2">
+                                <input type='submit' Value="Submit" class="btn btn-lg btn-success m-2" id="btn">
+                        </form>
+                        <h2 id="heading" class="card-title">Number fact:</h2>
+                        <h4 id="factText" class="card-text"></h4>
+                </div>
+            </div>
+            
+         
+            <script>
+               var month = document.getElementById('month');
+               var day = document.getElementById('day');
+               document.getElementById('form').addEventListener('submit', getFact);
+           
+               function getFact(e){
+                  e.preventDefault();
+                  var monthValue = month.value;
+                  var dayValue = day.value;
+                  fetch(`http://numbersapi.com/${monthValue}/${dayValue}/date`).then((res) => res.text()).then((data) => {
+                       if(monthValue != '' || dayValue != ''){
+                        document.getElementById('factText').innerHTML = data;
+                        document.getElementById('heading').style.display="block";
+                       }
+                       
+                       
+                   }).catch((err) => console.log(err))
+                  
+               }
+            </script>
+    </div>
+    
+</body>
+</html>

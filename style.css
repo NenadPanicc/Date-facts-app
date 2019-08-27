@@ -1,0 +1,69 @@
+
+    #heading {
+        display:none;
+    }
+    body {
+        background:#333;
+        color:white;
+        font-family: 'Indie Flower', cursive;
+    }
+    #header {
+        animation-name: header;
+        animation-duration: 1s;
+        animation-fill-mode: forwards;
+        position:relative;
+        opacity:0;
+    }
+    #month {
+        animation-name: month;
+        animation-duration: 1s;
+        animation-delay:0.5s;
+        animation-fill-mode: forwards;
+        position:relative;
+        opacity:0;
+       
+    }
+    #day {
+        animation-name:day;
+        animation-duration: 1s;
+       animation-delay:1s;
+        animation-fill-mode: forwards;
+        position:relative;
+        opacity:0;
+        
+   
+    } 
+    #btn {
+        animation-name:btn;
+        animation-duration: 1s;
+        animation-delay:1.5s;
+        animation-fill-mode: forwards;
+        position:relative;
+        opacity:0;
+    }
+    #content {
+        animation-name:content;
+        animation-duration: 1s;
+        animation-timing-function: ease-in;
+    }
+    @keyframes month  {
+        0% {opacity:0;top:-100px}
+        100% {opacity:1;top:0px}
+    }
+    @keyframes day {
+        0% {opacity:0;top:-100px}
+        100% {opacity:1;top:0px}
+    }
+    @keyframes btn {
+        0% {opacity:0;}
+        100% {opacity:1;}
+    }
+    @keyframes header {
+        0% {opacity:0;top:-100px}
+        100% {opacity:1;top:0px}
+    }
+
+    @keyframes content {
+        0% {background-color:#333;}
+        100% {background-color:	#428bca;}
+    }
